@@ -1,7 +1,7 @@
 
 from blacklist.views import black_list, ip_add, ip_del
 from django.urls import include, path
-from django.conf.urls import include,url
+#from django.conf.urls import include, url
 from django.contrib import admin
 from news.views import all_news, all_news_search, news_detail_short, news_list,news_add
 from main.views import about_setting, answer_cm, change_pass, contact, home, about, mylogin, mylogout, myregister, panel, show_data,site_setting
@@ -41,7 +41,7 @@ urlpatterns =[
     path('rest/',include(router.urls)),
     path('api-auth/', include('rest_framework.urls',namespace='rest_framework')),
 
-    url(r'^sitemap\.xml$', sitemap, {'sitemaps':sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
+    path(r'^sitemap\.xml$', sitemap, {'sitemaps':sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
 
 
     path('media/(?P<path>.*)',serve,{'document_root':settings.MEDIA_ROOT}),
